@@ -5,6 +5,7 @@ FROM public.ecr.aws/lts/ubuntu:latest as dbt_project
 ARG AWS_DEFAULT_REGION
 ARG AWS_CONTAINER_CREDENTIALS_RELATIVE_URI
 
+# Copy the dbt project files into the Docker image
 ADD dbt-project /agrofy_news
 
 # Update and install system packages
@@ -23,4 +24,5 @@ ENV DBT_DIR /agrofy_news
 WORKDIR $DBT_DIR
 ENV DBT_PROFILES_DIR $DBT_DIR
 
+# Install dbt dependencies after copying the project files
 RUN dbt deps
