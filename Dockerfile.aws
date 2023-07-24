@@ -20,7 +20,7 @@ RUN apt-get update -y && \
 RUN pip install -U pip
 RUN pip install git+https://github.com/dbt-athena/dbt-athena.git
 
-ENV DBT_DIR /agrofy_news
+ENV DBT_DIR /dbt-project
 WORKDIR $DBT_DIR
 ENV DBT_PROFILES_DIR $DBT_DIR
 
